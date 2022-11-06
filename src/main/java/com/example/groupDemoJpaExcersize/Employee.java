@@ -1,18 +1,25 @@
 package com.example.groupDemoJpaExcersize;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Table(name = "employee")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long employeeId;
+
+    @OneToMany
+    @JoinColumn(name = "employee_Id", referencedColumnName = "Id")
+    private List<EmployeeProject> employeeProjects;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    private EmployeeProject employeeProject;
+
+//    @OneToOne(mappedBy = "Employee")
+//    private Supervisor supervisor;
+
     private String firstName, middleName, lastName, suffix;
-    Address employeeAddress = new Address();
-    Project employeeProject = new Project();
 
     protected Employee(){}
 
@@ -38,11 +45,9 @@ public class Employee {
     public String getSuffix(){
         return suffix;
     }
-    public Address getEmployeeAddress(){
-        return employeeAddress;
-    }
-    public Project getEmployeeProject(){
-        return employeeProject;
+
+    public List<EmployeeProject> getEmployeeProject(){
+        return employeeProjects;
     }
 
 }

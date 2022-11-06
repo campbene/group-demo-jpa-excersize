@@ -1,23 +1,28 @@
 package com.example.groupDemoJpaExcersize;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "employeeProject")
 public class EmployeeProject {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long employeeId, projectId;
+
+    @ManyToOne
+    private Employee employeeId;
 
     public EmployeeProject(){}
 
-    public EmployeeProject(long employeeId, long projectId){
-        this.employeeId = employeeId;
-        this.projectId = projectId;
-    }
+//    public EmployeeProject(long employeeId, long projectId){
+//        this.employeeId = employeeId;
+//        this.projectId = projectId;
+//    }
+
     public long getId(){
         return id;
+    }
+    public Employee getEmployee(){
+        return employeeId;
     }
 }
