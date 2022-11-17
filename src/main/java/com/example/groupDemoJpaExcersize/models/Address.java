@@ -1,9 +1,6 @@
-package com.example.groupDemoJpaExcersize;
+package com.example.groupDemoJpaExcersize.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Address {
@@ -19,6 +16,9 @@ public class Address {
     private String zipPlusFour;
     private String county;
     private String country;
+
+    @OneToOne
+    private Employee employee;
 
     protected Address(){}
 
@@ -72,6 +72,10 @@ public class Address {
 
     public String getCountry() {
         return country;
+    }
+
+    public Employee getEmployee(){
+        return employee;
     }
 
 }

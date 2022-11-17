@@ -1,4 +1,4 @@
-package com.example.groupDemoJpaExcersize;
+package com.example.groupDemoJpaExcersize.models;
 
 import javax.persistence.*;
 
@@ -12,6 +12,9 @@ public class EmployeeProject {
     @ManyToOne
     private Employee employeeId;
 
+    @ManyToOne
+    private Project projectId;
+
     public EmployeeProject(){}
 
 //    public EmployeeProject(long employeeId, long projectId){
@@ -24,5 +27,8 @@ public class EmployeeProject {
     }
     public Employee getEmployee(){
         return employeeId;
+    }
+    public Project getProjectId(){
+        return projectId;
     }
 }

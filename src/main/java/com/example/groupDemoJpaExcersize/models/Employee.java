@@ -1,7 +1,7 @@
-package com.example.groupDemoJpaExcersize;
+package com.example.groupDemoJpaExcersize.models;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Collection;
 
 @Entity
 @Table(name = "employee")
@@ -11,13 +11,16 @@ public class Employee {
     private Long employeeId;
 
     @OneToMany
-    @JoinColumn(name = "employee_Id", referencedColumnName = "Id")
-    private List<EmployeeProject> employeeProjects;
-//    @OneToOne(cascade = CascadeType.ALL)
-//    private EmployeeProject employeeProject;
+    private Collection<EmployeeProject> employeeProjects;
 
-//    @OneToOne(mappedBy = "Employee")
-//    private Supervisor supervisor;
+    @ManyToOne
+    private Supervisor supervisor;
+
+    @OneToOne
+    private Address address;
+
+    @OneToOne
+    private Contributor contributor;
 
     private String firstName, middleName, lastName, suffix;
 
@@ -46,8 +49,17 @@ public class Employee {
         return suffix;
     }
 
-    public List<EmployeeProject> getEmployeeProject(){
+    public Collection<EmployeeProject> getEmployeeProject(){
         return employeeProjects;
+    }
+    public Supervisor getSupervisor(){
+        return supervisor;
+    }
+    public Address getAddress(){
+        return address;
+    }
+    public Contributor getContributor(){
+        return contributor;
     }
 
 }
