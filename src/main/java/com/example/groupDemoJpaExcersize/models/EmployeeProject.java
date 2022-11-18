@@ -15,14 +15,15 @@ public class EmployeeProject {
     @ManyToOne
     private Project projectId;
 
+    private String employeeProjectName;
+
     public EmployeeProject(){}
 
-//    public EmployeeProject(long employeeId, long projectId){
-//        this.employeeId = employeeId;
-//        this.projectId = projectId;
-//    }
+    public EmployeeProject(String employeeProjectName){
+        this.employeeProjectName = employeeProjectName;
+    }
 
-    public long getId(){
+    public Long getId(){
         return id;
     }
     public Employee getEmployee(){
@@ -30,5 +31,8 @@ public class EmployeeProject {
     }
     public Project getProjectId(){
         return projectId;
+    }
+    public String getEmployeeProjectName(){
+        return employeeProjectName;
     }
 }

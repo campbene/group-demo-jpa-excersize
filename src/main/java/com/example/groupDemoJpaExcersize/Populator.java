@@ -30,11 +30,11 @@ public class Populator implements CommandLineRunner {
         projectRepo.save(projectOne);
         Address addressOne = new Address("1234 Bruce Rd.","","","Happy Township","OH","44111","44111-1234","Lorain","USA");
         addressRepo.save(addressOne);
-//        EmployeeProject employeeProjectOne = new EmployeeProject();
-//        employeeProjectRepo.save(employeeProjectOne);
-//        Supervisor supervisorOne = new Supervisor();
-//        supervisorRepo.save(supervisorOne);
-//        Contributor contributorOne = new Contributor();
-//        contributorRepo.save(contributorOne);
+        Supervisor supervisorOne = new Supervisor("Mr.", "Boss");
+        supervisorRepo.save(supervisorOne);
+        EmployeeProject employeeProjectOne = new EmployeeProject("Employee project one");
+        employeeProjectRepo.save(employeeProjectOne);
+        Contributor contributorOne = new Contributor("Contributor one");
+        contributorRepo.save(contributorOne);
     }
 }

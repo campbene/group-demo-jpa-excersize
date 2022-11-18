@@ -10,6 +10,4 @@ public class GroupDemoJpaExcersizeApplication {
 		SpringApplication.run(GroupDemoJpaExcersizeApplication.class, args);
 	}
 
-
-
 }

@@ -17,7 +17,13 @@ public class Contributor {
     @ManyToOne
     private Project project;
 
+    private String contributorName;
+
     public Contributor(){}
+
+    public Contributor(String contributorName){
+        this.contributorName = contributorName;
+    }
 
     public Long getId(){
         return id;
@@ -30,5 +36,8 @@ public class Contributor {
     }
     public Project getProject(){
         return project;
+    }
+    public String getContributorName(){
+        return contributorName;
     }
 }

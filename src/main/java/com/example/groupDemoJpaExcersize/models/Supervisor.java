@@ -17,8 +17,14 @@ public class Supervisor {
 
     @OneToOne
     private Contributor contributor;
+    private String firstName, lastName;
 
     public Supervisor(){}
+
+    public Supervisor(String firstName, String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     public Long getId(){
         return id;
@@ -31,5 +37,11 @@ public class Supervisor {
     }
     public Contributor getContributor(){
         return contributor;
+    }
+    public String getFirstName(){
+        return firstName;
+    }
+    public String getLastName(){
+        return lastName;
     }
 }
